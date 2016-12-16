@@ -1,0 +1,47 @@
+img {
+	max-width: 100%;
+}
+
+/* Set up parent as a 3D playground with perspective */
+.mg-tile {
+	height:  300px;
+	min-width: 300px;
+	border:  2px solid black;
+	perspective: 500px;
+}
+
+.mg-tile-inner {
+	width: 300px;
+	position: relative;
+	transform-style: preserve-3d; /*if we don't have this, children won't know 3d is a thing*/
+	transition: all 1s;
+}
+
+/* one element, both classes */
+/* .mg-front.mg-back */
+
+/* one element inside another element */
+/* .mg-front .mg-back */
+
+/* Two completely separate elements */
+.mg-front, .mg-back {
+	position: absolute;
+	top: 0;
+	left:  0;
+	border:  2px solid red;
+	backface-visibility: hidden; /* so we can't see it when it's facing down*/
+}
+
+.mg-front {
+	transform:  rotateY(180deg); /*flip the front of the card face down*/
+}
+
+.mg-back {
+	background: url('image2.png') no-repeat 50% 50%; 
+	width: 300px;
+	height:  200px;
+}
+
+.flip, .matched {
+	transform:  rotateY(-180deg);
+}

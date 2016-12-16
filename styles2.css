@@ -1,0 +1,48 @@
+img {
+	max-width: 100%;
+}
+
+body {
+	background-color: black;
+}
+
+/* Parent div.  Set up as a 3d space. */
+.card-tile {
+	height: 300px;
+	min-width: 176px;
+	/* border: 2px solid black; */
+	perspective: 500px;
+}
+
+.card-tile-inner {
+	width: 176px;
+	position: relative; /*must be relative so that children divs can be absolute within it*/
+	transform-style: preserve-3d; /*this exists so that children will have 3d space within the parent to flip/rotate*/
+	transition:  all 1s;
+}
+
+.card-front, .card-back {
+	position: absolute;
+	top:  0;
+	left: 0;
+	/* border:  2px solid black; */
+	backface-visibility: hidden;
+}
+
+.card-front {
+	transform:  rotateY(180deg);
+}
+
+.card-back {
+	width: 176px;
+	height: 200px;
+	background-color: blue;
+}
+
+.flip, .matched {
+	transform:  rotateY(-180deg);
+}
+
+
+
+
